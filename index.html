@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Gemi Aurni </title>
+<title>Happy Birthday Gemi Aurni</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
@@ -128,6 +128,18 @@ p {
 @keyframes fall {
     to {transform: translateY(900px);}
 }
+
+/* TOMBOL MUSIK */
+.music-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #ff4d6d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
 </style>
 </head>
 
@@ -135,7 +147,6 @@ p {
 
 <div class="container">
 
-    <!-- FOTO UTAMA -->
     <img src="gemiutama.jpg" class="main-img">
 
     <h1>🎉 Happy Birthday 🎉</h1>
@@ -143,7 +154,6 @@ p {
 
     <p>Semoga panjang umur, sehat selalu, dan semua impianmu tercapai ✨</p>
 
-    <!-- GALLERY 9 FOTO -->
     <div class="gallery">
         <img src="gemi1.jpg" onclick="openImg(this.src)">
         <img src="gemi2.jpg" onclick="openImg(this.src)">
@@ -156,9 +166,15 @@ p {
         <img src="gemi9.jpg" onclick="openImg(this.src)">
     </div>
 
+    <!-- AUDIO -->
+    <audio id="music" loop>
+        <source src="hbd.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-btn" onclick="playMusic()">▶️ Putar Musik</button>
+
 </div>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeImg()">
     <img id="lightImg">
 </div>
@@ -171,6 +187,11 @@ function openImg(src){
 }
 function closeImg(){
     document.getElementById("lightbox").style.display="none";
+}
+
+// MUSIK (biar pasti jalan)
+function playMusic(){
+    document.getElementById("music").play();
 }
 
 // BALON
@@ -193,9 +214,6 @@ setInterval(()=>{
     setTimeout(()=>c.remove(),5000);
 },120);
 </script>
-<audio controls autoplay loop>
-    <source src="hbd.mp3" type="audio/mpeg">
-    Browser kamu tidak mendukung audio.
-</audio>
+
 </body>
 </html>
